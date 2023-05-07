@@ -30,6 +30,8 @@ jobs:
       env:
           TESTCOVERAGE_THRESHOLD: 0
       run: |
+            echo "fix coverage.out path (_/home... -> ./)"
+            sed -i "s#_/home/runner/work/test-golang/test-golang/unit-testing#.#g" coverage.out
             echo "Quality Gate: checking test coverage is above threshold ..."
             echo "Threshold             : $TESTCOVERAGE_THRESHOLD %"
             totalCoverage=`go tool cover -func=coverage.out | grep total | grep -Eo '[0-9]+\.[0-9]+'`
