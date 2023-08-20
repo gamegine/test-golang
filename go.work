@@ -5,4 +5,5 @@ use (
 	./command-line-completion
 	./unit-testing
 	./websocket
+	./termui
 )
